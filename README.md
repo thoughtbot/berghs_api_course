@@ -84,4 +84,4 @@ Start your server. In your Terminal app, type the following:
 
     ruby berghs_instagram.rb
 
-Visit your Web site: http://localhost:4567/
+Visit your Web site: [http://localhost:4567/](http://localhost:4567/)
