@@ -1,18 +1,13 @@
-require 'sinatra'
-require 'instagram'
+require "sinatra"
+require "instagram"
 
 enable :sessions
 
 CALLBACK_URL = "http://localhost:4567/oauth/callback"
-BERGHS_SCHOOL_OF_COMMUNICATION = {
-  id: 590635,
-  latitude: 59.336326,
-  longitude: 18.063649
-}
 
 Instagram.configure do |config|
-  config.client_id = "8895c5c94ed54c05800781b45df53d7f"
-  config.client_secret = "62692f53ec2841698eb3a3c4a4332d17"
+  config.client_id = ENV['INSTAGRAM_CLIENT_ID']
+  config.client_secret = ENV['INSTAGRAM_CLIENT_SECRET']
 end
 
 get "/" do
@@ -30,17 +25,10 @@ get "/oauth/callback" do
 end
 
 get "/dashboard" do
-  puts "Using access token: #{session[:access_token]}"
   client = Instagram.client(access_token: session[:access_token])
   user = client.user
-  media = client.location_recent_media(BERGHS_SCHOOL_OF_COMMUNICATION[:id])
 
   html = "<h1>Berghs-tastic media for #{user.username}</h1>"
-  media.each do |medium|
-    html << '<p style="float: left; border: 1px solid gray; padding: 0.25em">'
-    html << "<img src='#{medium.images.thumbnail.url}'><br>"
-    html << medium.tags.map {|x| "##{x}" }.join(' ')
-    html << '</p>'
-  end
+
   html
 end

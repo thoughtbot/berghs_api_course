@@ -9,6 +9,7 @@ Talk about Ruby.
   Mention sthlmrb.
 Talk about code libraries.
   Mention GitHub.
+  Show the docs.
 Make them write code.
 If time: link tags to Twitter.
 Wrap up:
