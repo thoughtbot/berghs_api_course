@@ -9,7 +9,8 @@ we will also link the hashtags to Twitter.
 
 Most programming tutorials start off with a program that displays the message
 "Hello, world", so let's stick with that tradition and start with a simple Web
-site that just says "Hello, world"
+site that just says "Hello, world". Once that's working we can expand it to
+display Instagram photos using the API.
 
 ### Install the tools
 
@@ -19,8 +20,9 @@ Install the Sinatra Web framework. In your Terminal app, type:
 
 ### Build the Web site
 
-Open SublimeText and write the following into a file names
-`berghs_instagram.rb`:
+Open a text editor (if you don't have one, you can try
+[SublimeText](http://www.sublimetext.com/2)) and write the following into a file
+names `berghs_instagram.rb`:
 
     require "sinatra"
 
@@ -43,12 +45,14 @@ let's extend it to use the Instgram API.
 
 ### Install the Instagram library
 
+In your Terminal, type:
+
     gem install instagram
 
 ### Register your app with Instagram
 
-Register your new app (Instagram calls this a Client).
-http://instagram.com/developer/clients/register/
+Register your new app (Instagram calls this a Client) on the Instagram website:
+[http://instagram.com/developer/clients/register/](http://instagram.com/developer/clients/register/)
 
     Application Name: Photos at Berghs by YOUR NAME
     Description: Pictures at and around Berghs.
@@ -65,7 +69,8 @@ program later. In the Terminal app, type this:
 ### Logging in to Instagram
 
 Before we can get photos from the Instagram API, we need to ask the people
-visiting our Web site to log in to their Instagram account.
+visiting our Web site to log in to their Instagram account and give our Web site
+permission to access their information.
 
 Edit your `berghs_instagram.rb` file so that it looks like this:
 
